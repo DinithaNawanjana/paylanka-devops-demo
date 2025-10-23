@@ -1,0 +1,94 @@
+﻿<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <title>{{ title }}</title>
+    <!-- Modern UI: Tailwind via CDN for quick beautiful styles -->
+    <script src='https://cdn.tailwindcss.com'></script>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap' rel='stylesheet'>
+    <link rel='stylesheet' href='/static/css/style.css' />
+  </head>
+  <body class='bg-slate-950 text-slate-100 font-[Inter]'>
+    <header class='p-6'>
+      <div class='max-w-6xl mx-auto flex items-center justify-between'>
+        <div class='flex items-center gap-3'>
+          <div class='w-10 h-10 rounded-2xl bg-gradient-to-br from-teal-400 to-cyan-500 shadow-lg'></div>
+          <h1 class='text-2xl font-extrabold tracking-tight'>PayLanka <span class='text-cyan-400'>Payment Console</span></h1>
+        </div>
+        <div class='text-sm opacity-80'>Status: <span id='statusBadge' class='px-2 py-1 rounded bg-slate-800'>checking…</span></div>
+      </div>
+    </header>
+
+    <main class='max-w-6xl mx-auto px-6 pb-16'>
+      <!-- KPI Cards -->
+      <section class='grid grid-cols-1 md:grid-cols-3 gap-6'>
+        <div class='card'>
+          <div class='card-title'>Total</div>
+          <div id='kpi-total' class='card-value'>0</div>
+        </div>
+        <div class='card'>
+          <div class='card-title'>Success</div>
+          <div id='kpi-success' class='card-value text-emerald-400'>0</div>
+        </div>
+        <div class='card'>
+          <div class='card-title'>Failed</div>
+          <div id='kpi-failed' class='card-value text-rose-400'>0</div>
+        </div>
+      </section>
+
+      <!-- Create Payment -->
+      <section class='mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6'>
+        <div class='col-span-1 card'>
+          <div class='card-title flex items-center justify-between'>
+            New Payment
+            <span class='text-xs opacity-70'>Sandbox demo</span>
+          </div>
+          <form id='paymentForm' class='mt-4 space-y-4'>
+            <div>
+              <label class='label'>Amount (LKR)</label>
+              <input type='number' step='0.01' min='1' class='input' name='amount' placeholder='1000.00' required />
+            </div>
+            <div>
+              <label class='label'>Currency</label>
+              <select class='input' name='currency'>
+                <option value='LKR'>LKR</option>
+                <option value='USD'>USD</option>
+                <option value='EUR'>EUR</option>
+              </select>
+            </div>
+            <button class='btn btn-primary w-full' type='submit'>Process Payment</button>
+            <p id='formMessage' class='text-sm mt-2'></p>
+          </form>
+        </div>
+
+        <!-- Transactions table -->
+        <div class='lg:col-span-2 card'>
+          <div class='card-title'>Recent Transactions</div>
+          <div class='overflow-x-auto mt-4'>
+            <table class='min-w-full text-sm'>
+              <thead class='text-slate-400'>
+                <tr>
+                  <th class='th'>ID</th>
+                  <th class='th'>Amount</th>
+                  <th class='th'>Currency</th>
+                  <th class='th'>Status</th>
+                  <th class='th'>Created</th>
+                </tr>
+              </thead>
+              <tbody id='paymentsTable'></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class='py-6 text-center text-xs opacity-60'>
+      © <span id='year'></span> PayLanka • For academic DevOps demonstration
+    </footer>
+
+    <script src='/static/js/app.js'></script>
+  </body>
+</html>

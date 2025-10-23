@@ -1,0 +1,15 @@
+﻿:root { --glass: rgba(255,255,255,0.04); --glass-2: rgba(255,255,255,0.06); }
+.card { background: var(--glass); border: 1px solid rgba(255,255,255,0.06); border-radius: 18px; padding: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); backdrop-filter: blur(8px); }
+.card-title { font-weight: 700; letter-spacing: .2px; color: #e2e8f0; }
+.card-value { font-size: 32px; font-weight: 800; margin-top: 6px; }
+.label { display:block; font-size:12px; margin-bottom:6px; color:#93c5fd; }
+.input { width:100%; padding:10px 12px; border-radius:12px; background:#0b1220; border:1px solid #1f2a44; color:#e5e7eb; outline:none; }
+.input:focus { border-color:#22d3ee; box-shadow: 0 0 0 3px rgba(34,211,238,0.15); }
+.btn { padding:10px 14px; border-radius:12px; font-weight:700; }
+.btn-primary { background: linear-gradient(135deg,#22d3ee,#06b6d4); color:#001219; border:none; }
+.th { text-align:left; padding:10px 12px; border-bottom:1px solid rgba(255,255,255,0.06); }
+.td { padding:10px 12px; border-bottom:1px solid rgba(255,255,255,0.06); }
+.badge { padding:2px 8px; border-radius:999px; font-weight:700; font-size:12px; }
+.badge-success { background:#052e2b; color:#34d399; border:1px solid #065f46; }
+.badge-failed { background:#3b0a12; color:#fb7185; border:1px solid #7f1d1d; }
+.badge-pending{ background:#1d2433; color:#fbbf24; border:1px solid #a16207; }

@@ -1,0 +1,6 @@
+﻿__pycache__/
+.venv/
+.env
+*.pyc
+*.log
+transactions.db
